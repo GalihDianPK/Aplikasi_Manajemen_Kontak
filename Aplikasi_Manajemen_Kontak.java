@@ -13,11 +13,10 @@ public class Aplikasi_Manajemen_Kontak {
 
     public static void main (String[] args) {
         Scanner input = new Scanner(System.in);
-
-        System.out.println("=== Aplikasi manajemen Kontak ===");
         boolean status = true;
 
         while(status){
+            System.out.println("=== Aplikasi manajemen Kontak ===");
             String[] arrayMenu = {"Tambah kontak", "Cari kontak", "Hapus kontak", "Keluar"};
             for (int  i = 0; i < arrayMenu.length; i++){
                 System.out.println((i + 1) +". " + arrayMenu[i]);
