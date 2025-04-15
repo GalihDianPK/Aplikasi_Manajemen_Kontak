@@ -15,6 +15,10 @@ public class Aplikasi_Manajemen_Kontak {
         Scanner input = new Scanner(System.in);
         boolean status = true;
 
+        ArrayList<String> daftarNama = new ArrayList<>();
+        ArrayList<Integer> daftarNomor = new ArrayList<>();
+        ArrayList<String> daftarEmail = new ArrayList<>();
+
         while(status){
             System.out.println("=== Aplikasi manajemen Kontak ===");
             String[] arrayMenu = {"Tambah kontak", "Cari kontak", "Hapus kontak", "Keluar"};
@@ -40,9 +44,24 @@ public class Aplikasi_Manajemen_Kontak {
 
             switch(pilihanMenu) {
                 case 1 :
-                    for(int i = 0; i < 3; i++){
+                    System.out.print("Masukkan nama Kontak : ")
+                    String namaKontak = input.nextString();
+                    daftarNama.add(namaKontak);
+                    input.nextLine();
+
+                    System.out.print("Masukkan nomor Kontak : ");
+                    int nomorKontak = input.nextInt();
+                    daftarNomor.add(nomorKontak);
+                    input = nextLine();
+
+                    System.out.print("Masukkan Email Kontak : ");
+                    String email = input.textLine();
+                    daftarEmail.add(email);
+                    input = nextLine();
+
+                    for(int i = o; i < 3; i++) {
                         System.out.print(".");
-                        delay();
+                        delay
                     }
                     break;
                 default :
