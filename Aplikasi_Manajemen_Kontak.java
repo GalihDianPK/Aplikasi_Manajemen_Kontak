@@ -16,7 +16,7 @@ public class Aplikasi_Manajemen_Kontak {
         boolean status = true;
 
         ArrayList<String> daftarNama = new ArrayList<>();
-        ArrayList<Integer> daftarNomor = new ArrayList<>();
+        ArrayList<String> daftarNomor = new ArrayList<>();
         ArrayList<String> daftarEmail = new ArrayList<>();
 
         while(status){
@@ -44,32 +44,51 @@ public class Aplikasi_Manajemen_Kontak {
 
             switch(pilihanMenu) {
                 case 1 :
-                    System.out.print("Masukkan nama Kontak : ")
-                    String namaKontak = input.nextString();
+                    System.out.print("Masukkan nama Kontak : ");
+                    String namaKontak = input.nextLine();
                     daftarNama.add(namaKontak);
                     input.nextLine();
 
                     System.out.print("Masukkan nomor Kontak : ");
-                    int nomorKontak = input.nextInt();
+                    String nomorKontak = input.nextLine();
                     daftarNomor.add(nomorKontak);
-                    input = nextLine();
+                    input.nextLine();
 
                     System.out.print("Masukkan Email Kontak : ");
-                    String email = input.textLine();
+                    String email = input.nextLine();
                     daftarEmail.add(email);
-                    input = nextLine();
+                    input.nextLine();
 
-                    for(int i = o; i < 3; i++) {
+                    for(int i = 0; i < 3; i++) {
                         System.out.print(".");
-                        delay
+                        delay();
                     }
                     break;
+                case 2 :
+                    System.out.print("Sedang memuat catatan");
+                    for(int i = 0; i < 3; i++){
+                        System.out.print(".");
+                        delay();
+
+                    if(daftarNama.isEmpty() && daftarNomor.isEmpty() && daftarEmail.isEmpty()){
+                        System.out.println("Kontak kosong");
+                    } else if (daftarNomor.isEmpty()){
+                        for(int j = 0; j < daftarNomor.size(); i++){
+                            System.out.println(daftarNomor.get(j));
+                            for(int k = 0; k < daftarEmail.size(); i++){
+                                System.out.println(daftarEmail.get(k));
+                            }
+                        }
+                        
+                    }
+                }
                 default :
                     System.out.println("Pilihan sistem tidak tersedia, silahkan pilih (1-4)");
                     status = true;
                     break;
             }
         }
+
         //! kode untuk logout aplikasi
         System.out.println("Apakah kamu ingin keluar aplikasi? (y/n) : ");
         char keluarAplikasi = input.next().charAt(0);
@@ -77,6 +96,7 @@ public class Aplikasi_Manajemen_Kontak {
 
         if(keluarAplikasi == 'y' || keluarAplikasi == 'Y') {
             System.out.println("Terimakasih sudah menggunakan aplikasi !");
+            input.close();
         } else if (keluarAplikasi == 'n' || keluarAplikasi == 'N') {
             status = true;
         } else {
