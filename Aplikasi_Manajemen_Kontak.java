@@ -29,7 +29,7 @@ public class Aplikasi_Manajemen_Kontak {
             System.out.print("PILIH MENU : "); //! kode mengoperasikan pilihan menu
             byte pilihanMenu = -1; //? ini digunakan untuk menghindari error
 
-            try {
+            try { 
                 pilihanMenu = input.nextByte();
                 input.nextLine();
             } catch (Exception e) {
@@ -69,25 +69,28 @@ public class Aplikasi_Manajemen_Kontak {
                     for(int i = 0; i < 3; i++){
                         System.out.print(".");
                         delay();
+                    }
 
                     if(daftarNama.isEmpty() && daftarNomor.isEmpty() && daftarEmail.isEmpty()){
                         System.out.println("Kontak kosong");
                     } else if (daftarNomor.isEmpty()){
-                        for(int j = 0; j < daftarNomor.size(); i++){
-                            System.out.println(daftarNomor.get(j));
-                            for(int k = 0; k < daftarEmail.size(); i++){
-                                System.out.println(daftarEmail.get(k));
+                        for(int a = 0; a < daftarNomor.size(); a++){
+                            System.out.println(daftarNomor.get(a));
+                            for(int j = 0; j < daftarNomor.size(); j++){
+                                System.out.println(daftarNomor.get(j));
+                                for(int k = 0; k < daftarEmail.size(); k++){
+                                    System.out.println(daftarEmail.get(k));
+                                }
                             }
-                        }
-                        
+                        } 
                     }
-                }
                 default :
                     System.out.println("Pilihan sistem tidak tersedia, silahkan pilih (1-4)");
                     status = true;
                     break;
             }
         }
+        
 
         //! kode untuk logout aplikasi
         System.out.println("Apakah kamu ingin keluar aplikasi? (y/n) : ");
