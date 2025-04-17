@@ -44,24 +44,38 @@ public class Aplikasi_Manajemen_Kontak {
 
             switch(pilihanMenu) {
                 case 1 :
-                    System.out.print("Masukkan nama Kontak : ");
-                    String namaKontak = input.nextLine();
-                    daftarNama.add(namaKontak);
-                    input.nextLine();
+                    boolean caseSatu = true;
 
-                    System.out.print("Masukkan nomor Kontak : ");
-                    String nomorKontak = input.nextLine();
-                    daftarNomor.add(nomorKontak);
-                    input.nextLine();
+                    while(caseSatu){
+                        System.out.print("Masukkan nama Kontak : ");
+                        String namaKontak = input.nextLine();
+                        daftarNama.add(namaKontak);
 
-                    System.out.print("Masukkan Email Kontak : ");
-                    String email = input.nextLine();
-                    daftarEmail.add(email);
-                    input.nextLine();
+                        System.out.print("Masukkan nomor Kontak : ");
+                        String nomorKontak = input.nextLine();
+                        daftarNomor.add(nomorKontak);
 
-                    for(int i = 0; i < 3; i++) {
-                        System.out.print(".");
-                        delay();
+                        System.out.print("Masukkan Email Kontak : ");
+                        String email = input.nextLine();
+                        daftarEmail.add(email);
+
+                        for(int i = 0; i < 3; i++) {
+                            System.out.print(".");
+                            delay();
+                        }
+
+                        System.out.println("\nData kontak berhasil dimasukkan !");
+
+                        System.out.print("Ingin input kontak lagi ? (y/n) : ");
+                        char choice = input.next().charAt(0);
+                        input.nextLine();
+
+                        if (choice == 'y' && choice == 'Y'){
+                            caseSatu = true;
+                        } else if (choice == 'n' || choice == 'N') {
+                            caseSatu = false;
+                        }
+                        System.out.println();
                     }
                     break;
                 case 2 :
@@ -71,19 +85,28 @@ public class Aplikasi_Manajemen_Kontak {
                         delay();
                     }
 
+                    System.out.println();
+
                     if(daftarNama.isEmpty() && daftarNomor.isEmpty() && daftarEmail.isEmpty()){
                         System.out.println("Kontak kosong");
-                    } else if (daftarNomor.isEmpty()){
-                        for(int a = 0; a < daftarNomor.size(); a++){
-                            System.out.println(daftarNomor.get(a));
-                            for(int j = 0; j < daftarNomor.size(); j++){
-                                System.out.println(daftarNomor.get(j));
-                                for(int k = 0; k < daftarEmail.size(); k++){
-                                    System.out.println(daftarEmail.get(k));
-                                }
-                            }
-                        } 
-                    }
+                    } else {
+                        for (int i = 0; i < 3; i++) {
+                            System.out.println(".");
+                            delay();
+                        }
+                        for (int i = 0; i < daftarNama.size(); i++){
+                            System.out.println("\nKontak ke - " + (i + 1) );
+                            System.out.println("Nama kontak : " + daftarNama.get(i));
+                            System.out.println("Nomor kontak : " + daftarNomor.get(i));
+                            System.out.println("Email kontak : " + daftarEmail.get(i));
+                        }
+                        for (int i = 0; i < 25; i++){
+                            System.out.print("-");
+                        }
+                        System.out.println("\n\n");
+                    }              
+                    break;
+                case 3 :
                 default :
                     System.out.println("Pilihan sistem tidak tersedia, silahkan pilih (1-4)");
                     status = true;
