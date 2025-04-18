@@ -90,7 +90,7 @@ public class Aplikasi_Manajemen_Kontak {
                     if(daftarNama.isEmpty() && daftarNomor.isEmpty() && daftarEmail.isEmpty()){
                         System.out.println("Kontak kosong");
                     } else {
-                        for (int i = 0; i < 3; i++) {
+                        for (int i = 0; i < 1; i++) {
                             System.out.println(".");
                             delay();
                         }
@@ -103,10 +103,17 @@ public class Aplikasi_Manajemen_Kontak {
                         for (int i = 0; i < 25; i++){
                             System.out.print("-");
                         }
-                        System.out.println("\n\n");
+                        System.out.println("\n");
                     }              
                     break;
                 case 3 :
+                    boolean hapusKontak = true;
+                    while(hapusKontak) {
+                        for (int i = 0; i < daftarNama.size(); i++){
+                            
+                        }
+                        System.out.println("Pilih kontak yang ingin dihapus");
+                    }
                 default :
                     System.out.println("Pilihan sistem tidak tersedia, silahkan pilih (1-4)");
                     status = true;
