@@ -21,7 +21,7 @@ public class Aplikasi_Manajemen_Kontak {
 
         while(status){
             System.out.println("=== Aplikasi manajemen Kontak ===");
-            String[] arrayMenu = {"Tambah kontak", "Cari kontak", "Hapus kontak", "Keluar"};
+            String[] arrayMenu = {"Tambah kontak", "Tampilkan kontak", "Hapus kontak", "Keluar"};
             for (int  i = 0; i < arrayMenu.length; i++){
                 System.out.println((i + 1) +". " + arrayMenu[i]);
             }
@@ -109,11 +109,34 @@ public class Aplikasi_Manajemen_Kontak {
                 case 3 :
                     boolean hapusKontak = true;
                     while(hapusKontak) {
-                        for (int i = 0; i < daftarNama.size(); i++){
-                            
-                        }
-                        System.out.println("Pilih kontak yang ingin dihapus");
+                        if (daftarNama.isEmpty() && daftarNomor.isEmpty() && daftarEmail.isEmpty()){
+                            System.out.println("Kontak kosong");
+                        } else {
+                            for (int i = 0; i < daftarNama.size(); i++){
+                                System.out.println((i + 1) + (". ") + daftarNama.get(i) + " ");
+                            }
+
+                            System.out.println("Pilih kontak yang ingin dihapus");
+                            byte erase = input.nextByte();
+                            input.nextLine();
+
+                            if(erase >= 1 && erase <= daftarNama.size()){
+                                String teksMasukan = input.nextLine();
+                                daftarNama.set(erase -1, teksMasukan);
+                                System.out.println("Kontak berhasil dihapus! ");
+                            } else {
+                                System.out.println("nomor yang dimasukkan tidak valid");
+                            }
+                        } 
                     }
+                    break;
+                case 4 :
+                    for(int i = 0; i < 3; i++){
+                        System.out.print(".");
+                        delay();
+                    }
+                    status = false;
+                    break;
                 default :
                     System.out.println("Pilihan sistem tidak tersedia, silahkan pilih (1-4)");
                     status = true;
