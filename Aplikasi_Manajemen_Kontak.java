@@ -70,7 +70,7 @@ public class Aplikasi_Manajemen_Kontak {
                         char choice = input.next().charAt(0);
                         input.nextLine();
 
-                        if (choice == 'y' && choice == 'Y'){
+                        if (choice == 'y' || choice == 'Y'){
                             caseSatu = true;
                         } else if (choice == 'n' || choice == 'N') {
                             caseSatu = false;
@@ -121,12 +121,27 @@ public class Aplikasi_Manajemen_Kontak {
                             input.nextLine();
 
                             if(erase >= 1 && erase <= daftarNama.size()){
-                                String teksMasukan = input.nextLine();
-                                daftarNama.set(erase -1, teksMasukan);
+                                daftarNama.remove(erase -1);
+                                daftarNomor.remove(erase -1);
+                                daftarEmail.remove(erase -1);
                                 System.out.println("Kontak berhasil dihapus! ");
                             } else {
                                 System.out.println("nomor yang dimasukkan tidak valid");
                             }
+
+                            System.out.println("ingin menghapus kontak lagi? (y/n) : ");
+                            char hapusSemua = input.next().charAt(0);
+                            input.nextLine();
+                            if (hapusSemua == 'y' || hapusSemua == 'Y'){
+                                hapusKontak = true;
+                            } else {
+                                for (int i = 0; i < 3; i++){
+                                    System.out.print(".");
+                                    delay();
+                                }
+                                hapusKontak = false;
+                            }
+
                         } 
                     }
                     break;
